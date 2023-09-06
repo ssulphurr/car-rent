@@ -5,7 +5,7 @@ const NotFound = () => {
     <>
       <div>NotFound</div>
       <p>
-        Yoo can return to <NavLink to="/">Home</NavLink>
+        You can return to <NavLink to="/">Home</NavLink>
       </p>
     </>
   );

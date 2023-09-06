@@ -11,17 +11,19 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
+const NavbarLinks = styled.div`
+  display: flex;
+  gap: 12px;
+`;
+
 export default function Navigation() {
   return (
     <nav>
-      <div>
+      <NavbarLinks>
         <StyledLink to="/">Home</StyledLink>
-
-        <div>
-          <StyledLink to="/catalog">Catalog</StyledLink>
-          <StyledLink to="/favorites">Favorites</StyledLink>
-        </div>
-      </div>
+        <StyledLink to="/catalog">Catalog</StyledLink>
+        <StyledLink to="/favorites">Favorites</StyledLink>
+      </NavbarLinks>
     </nav>
   );
 }
