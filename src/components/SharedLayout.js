@@ -7,24 +7,31 @@ const Navbar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f7f7fb;
   height: 80px;
+`;
+
+const NavWrapper = styled.div`
+  background-color: #f7f7fb;
 `;
 
 const SharedLayout = () => {
   return (
     <>
-      <Navbar>
-        <NavLink to="/">
-          <img
-            width={120}
-            height={120}
-            src="https://static.vecteezy.com/system/resources/thumbnails/003/694/243/small/car-icon-in-flat-style-simple-traffic-icon-free-vector.jpg"
-            alt="go home"
-          />
-        </NavLink>
-        <Navigation />
-      </Navbar>
+      <NavWrapper>
+        <Container>
+          <Navbar>
+            <NavLink to="/">
+              <img
+                width={60}
+                height={60}
+                src="https://www.freeiconspng.com/thumbs/car-icon-png/car-icon-png-25.png"
+                alt="go home"
+              />
+            </NavLink>
+            <Navigation />
+          </Navbar>
+        </Container>
+      </NavWrapper>
       <Container>
         <Outlet />
       </Container>

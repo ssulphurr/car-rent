@@ -1,4 +1,3 @@
-import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 
 const ContainerStyled = styled.div`
@@ -7,12 +6,8 @@ const ContainerStyled = styled.div`
   margin-right: auto;
 `;
 
-const Container = () => {
-  return (
-    <ContainerStyled>
-      <Outlet />
-    </ContainerStyled>
-  );
+const Container = ({ children }) => {
+  return <ContainerStyled>{children}</ContainerStyled>;
 };
 
 export default Container;
