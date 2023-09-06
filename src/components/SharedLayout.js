@@ -3,15 +3,14 @@ import Container from "./Container";
 import Navigation from "./Navigation";
 import styled from "styled-components";
 
+const NavWrapper = styled.div`
+  background-color: #f7f7fb;
+`;
 const Navbar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 80px;
-`;
-
-const NavWrapper = styled.div`
-  background-color: #f7f7fb;
 `;
 
 const SharedLayout = () => {
