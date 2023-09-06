@@ -5,7 +5,7 @@ const SharedLayout = () => {
   return (
     <>
       <NavLink to="/">
-        <a href="">
+        <a href="/">
           <img
             src="https://static.vecteezy.com/system/resources/thumbnails/003/694/243/small/car-icon-in-flat-style-simple-traffic-icon-free-vector.jpg"
             alt="go home"
