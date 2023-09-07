@@ -4,20 +4,36 @@ import getAllCars from "../services/api";
 
 const Catalog = () => {
   const [allCars, setAllCars] = useState([]);
+  const [page, setPage] = useState(1);
 
   const updateCars = async () => {
-    const fetchedCars = await getAllCars();
-    setAllCars(fetchedCars);
+    const fetchedCars = await getAllCars(page, 8);
+
+    setAllCars((prevState) => {
+      if (!prevState) {
+        return fetchedCars;
+      }
+
+      if (prevState !== fetchedCars) {
+        console.log(prevState);
+        return [...prevState, ...fetchedCars];
+      }
+    });
   };
 
   useEffect(() => {
     updateCars();
-  }, []);
+  }, [page]);
+
+  const handlePagination = () => {
+    setPage(page + 1);
+  };
 
   return (
     <>
-      <div>Catalog</div>
       <CarCardsList data={allCars} />
+
+      <button onClick={handlePagination}>Load more</button>
     </>
   );
 };
