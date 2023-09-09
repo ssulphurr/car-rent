@@ -1,4 +1,6 @@
+import { useState } from "react";
 import styled from "styled-components";
+import CarModal from "./CarModal";
 
 const LiStyled = styled.li`
   flex-basis: 274px;
@@ -19,6 +21,8 @@ const ImgStyled = styled.img`
 const CarMainInfo = styled.div`
   font-family: Manrope;
   font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
@@ -34,6 +38,10 @@ const CarDescriptionInfo = styled.div`
 const ButtonStyled = styled.button`
   background-color: #3470ff;
   color: #fff;
+  font-family: Manrope;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
   width: 100%;
   height: 44px;
   border-radius: 12px;
@@ -44,25 +52,27 @@ const ButtonStyled = styled.button`
 `;
 
 const CarCardItem = ({ data }) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
   const {
     year,
     make,
     model,
     type,
     img,
-    // description,
-    // fuelConsumption,
-    // engineSize,
-    // accessories,
     functionalities,
     rentalPrice,
     rentalCompany,
     address,
-    // rentalConditions,
     mileage,
   } = data;
 
   const addressArr = address.split(",");
+  const mileageWithComa = (mileage / 1000).toString().replace(".", ",");
 
   return (
     <>
@@ -76,10 +86,12 @@ const CarCardItem = ({ data }) => {
         </CarMainInfo>
         <CarDescriptionInfo>
           {addressArr[1]} | {addressArr[2]} | {rentalCompany} <br />
-          {type} | {model} | {mileage} | {functionalities[0]}
+          {type} | {model} | {mileageWithComa} | {functionalities[0]}
         </CarDescriptionInfo>
-        <ButtonStyled>Learn more</ButtonStyled>
+        <ButtonStyled onClick={toggleModal}>Learn more</ButtonStyled>
       </LiStyled>
+
+      {showModal && <CarModal data={data} handleToggle={toggleModal} />}
     </>
   );
 };
