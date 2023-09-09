@@ -6,22 +6,22 @@ const Catalog = () => {
   const [allCars, setAllCars] = useState([]);
   const [page, setPage] = useState(1);
 
-  const updateCars = async () => {
-    const fetchedCars = await getAllCars(page, 8);
-
-    setAllCars((prevState) => {
-      if (!prevState) {
-        return fetchedCars;
-      }
-
-      if (prevState.length > 0) {
-        console.log(prevState);
-        return [...prevState, ...fetchedCars];
-      }
-    });
-  };
-
   useEffect(() => {
+    const updateCars = async () => {
+      const fetchedCars = await getAllCars(page, 8);
+
+      setAllCars((prevState) => {
+        if (!prevState) {
+          return fetchedCars;
+        }
+
+        if (prevState.length > 0) {
+          console.log(prevState);
+          return [...prevState, ...fetchedCars];
+        }
+      });
+    };
+
     updateCars();
   }, [page]);
 
