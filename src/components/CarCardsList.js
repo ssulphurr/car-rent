@@ -9,7 +9,7 @@ const UlStyled = styled.ul`
   justify-content: space-between;
 `;
 
-const CarCardsList = ({ data }) => {
+const CarCardsList = ({ data = [] }) => {
   return (
     <>
       {data.length > 0 && (

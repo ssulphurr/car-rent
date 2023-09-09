@@ -14,7 +14,7 @@ const Catalog = () => {
         return fetchedCars;
       }
 
-      if (prevState !== fetchedCars) {
+      if (prevState.length > 0) {
         console.log(prevState);
         return [...prevState, ...fetchedCars];
       }
