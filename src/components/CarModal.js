@@ -21,7 +21,7 @@ const ModalDiv = styled.div`
   display: flex;
   flex-direction: column;
   width: 541px;
-  height: 752px;
+  min-height: 752px;
   box-sizing: border-box;
   position: relative;
   border-radius: 24px;
@@ -76,6 +76,7 @@ const RentalInfoList = styled.ul`
   padding: 0;
   flex-wrap: wrap;
   gap: 8px;
+  margin-bottom: 24px;
 `;
 
 const RentalInfoItem = styled.li`
@@ -106,8 +107,6 @@ const AStyled = styled.a`
   border-radius: 12px;
   border: none;
   cursor: pointer;
-  position: absolute;
-  bottom: 40px;
 `;
 
 const CarModal = ({ data, handleToggle }) => {
